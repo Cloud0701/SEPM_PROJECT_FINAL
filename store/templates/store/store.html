@@ -1,0 +1,145 @@
+<head>
+	<style>
+	.footer {
+	border-top: var(--text-color) 1px solid;
+	padding: 30px;
+	margin-top: 20px;
+	color: #2d0007;
+	text-decoration: none;
+	font-weight: bolder;
+	
+	
+}
+
+	.footer ul {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	text-align: center;
+	color: #2d0007;
+	text-decoration: none;
+	}
+	.footer li{
+		text-decoration: none;
+		cursor: pointer;
+		list-style: none;
+	}
+	#junk_food,
+#fruit_vege,
+#dairy_pro{
+		color: #2d2254;
+		font-weight: bolder;
+	}
+	.storage_category{
+		background-color: #DC7676;
+		padding: 20px 0;
+	}
+	body{
+		background-image:url('static/images/Web 1920 – 1.png');
+		background-repeat: repeat;
+	}
+
+	</style>
+</head>
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+	<div class="store_category" style="background-color: transparent;
+	margin: 0;
+		padding: 0;">
+		<ul style="text-align: center;">
+			<li style="list-style: none;
+			margin: 0 20px;
+			display: inline; border: 3px solid #2d2254; padding: 5px;"><a href="#junk_food" style="text-decoration: none; color: #2d2254; font-weight: 500;" >JUNK FOOD</a></li>
+			<li style="list-style: none;
+			margin: 0 20px;
+			display: inline; border: 3px solid #2d2254; padding: 5px;"><a href="#fruit_vege" style="text-decoration: none; color: #2d2254; font-weight: 500;">FRUITS & VEGETABLES</a></li>
+			<li style="list-style: none;
+			margin: 0 20px;
+			display: inline; border: 3px solid #2d2254; padding: 5px;"><a href="#dairy_pro" style="text-decoration: none; color: #2d2254; font-weight: 500;">DAIRY PRODUCTS</a></li>
+		</ul>
+	</div>
+	<br>
+	<br>
+	<h4 id="junk_food" >JUNK FOOD</h4>
+	<div class="row">
+		{% for product in products1 %}
+		
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				
+				<h4 style="display: inline-block; float: right"><strong>{{product.price}}Rs</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h4 id="fruit_vege">Fruits and Vegetables</h4>
+	<div class="row">
+		{% for product in products2 %}
+		
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				
+				
+				<h4 style="display: inline-block; float: right"><strong>{{product.price}}Rs</strong></h4>
+
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<h4 id="dairy_pro">Dairy Products</h4>
+	<div class="row" style="padding-bottom: 50px;">
+		{% for product in products3 %}
+		
+		<div class="col-lg-4">
+			<img class="thumbnail" src="{{product.imageURL}}">
+			<div class="box-element product">
+				<h6><strong>{{product.name}}</strong></h6>
+				<hr>
+
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				
+				
+				<h4 style="display: inline-block; float: right"><strong>{{product.price}}Rs</strong></h4>
+
+			</div>
+		</div>
+		<br>
+		<br>
+		<br>
+		{% endfor %}
+		
+	</div>
+	<hr style="height:2px;border-width:0;color:#2d0007;background-color:#2d0007">
+	<footer class="footer" style="color: #2d0007; text-decoration: none;">
+		<ul>
+		<li>Faq</li>
+		<li>Terms of Use</li>
+		<li>Privacy Notice</li>
+		<li>Contact Us</li>
+		<li>About Us</li>
+		</ul>
+
+{% endblock content %}
